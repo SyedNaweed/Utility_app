@@ -89,18 +89,21 @@ function GPAcalculator(){
             </div>
             <button onClick={removeAllsubjects} className="bg-red-300 text-white px-4 py-2 rounded hover:bg-red-500 transition">Remove All Subjects</button>
             </div>
-            <div className="w-full md:w-1/2 bg-grey-200 p-4 rounded-lg shadow-md"> 
+                <div className="w-full md:w-1/2 bg-grey-200 p-4 rounded-lg shadow-md"> 
             <h3 className="text-lg font-semibold mb-2">Subject:</h3>
             <ul className="space-y-2 mb-4">
                 {subjects.map((sub,index)=>(
                     <li key={index} className="flex justify-between items-center bg-gray-100 p-3 rounded shadow">
-                        Grade: {sub.grade} gradepoints: {sub.gradepoint} Credits: {sub.credit}
+                        <span>
+                            <strong>Grade:</strong>  {sub.grade} | <strong>gradepoints:</strong> {sub.gradepoint} | <strong>Credits:</strong>  {sub.credit}
+                        </span>
                         {" "}
-                        <button onClick={() => removeSubject(index)} className="text-xl font-bold test-center ">Remove</button>
+                        <button onClick={() => removeSubject(index)} className="text-xl font-bold test-center rounded px-3 py-2 hover:bg-red-400 transition ">Remove</button>
                     </li>
                 ))}
             </ul>
-            <h3>GPA: {calculateGPA()}</h3>
+            <h3 className="text-xl font-bold">
+               <span className=""> GPA: {calculateGPA()}</span></h3>
                 </div>
             </div>
         </div>
