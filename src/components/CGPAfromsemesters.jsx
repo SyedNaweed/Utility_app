@@ -9,7 +9,7 @@ function CGPAfromsemesters(){
     const addsemester=()=>{
         const gpavalue=parseFloat(gpa);
         const creditvalue=parseFloat(credits);
-        if(isNaN(gpavalue)|| isNaN(creditvalue) || gpavalue<0|| creditvalue<=0)
+        if(isNaN(gpavalue)|| isNaN(creditvalue) || gpavalue<0|| creditvalue<=0 || gpavalue > 10 || creditvalue > 30)
         {
             alert("please enter a valid gpa and credits value");
             return;
@@ -42,7 +42,7 @@ function CGPAfromsemesters(){
     };
     return (
   <div className="min-h-screen bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-600 flex flex-col items-left justify-center px-2">
-      <h1 className="text-2xl font-bold drop-shadow-md mb-4 text-center mb-6">
+      <h1 className="text-2xl font-bold mb-4 drop-shadow-md  text-center mb-6">
         CGPA Calculator
       </h1>
     {/* <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full space-y-5"> */}
@@ -55,10 +55,10 @@ function CGPAfromsemesters(){
             GPA:{" "}
         <input
           type="number" value={gpa} step="0.01" onChange={(e) => setgpa(e.target.value)}
-          className="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-400 outline-none"/>
+          className="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"/>
       </label>
         </div>
-
+        <br />
         <div className="mb-4">
       <label className="block mb-1 font-medium">
         Credits:{" "}
@@ -72,6 +72,7 @@ function CGPAfromsemesters(){
 
       </label>
           </div>
+          <br />
       <div className="flex gap-2 mt-6">
         <button
           onClick={addsemester}

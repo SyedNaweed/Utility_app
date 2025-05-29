@@ -21,7 +21,7 @@ function GPAcalculator(){
     const addsubject=()=>{
         const gradepoint=grademap[grade];
         const creditvalue=parseFloat(credit);
-        if(isNaN(credit)|| credit<=0){
+        if(isNaN(credit)|| credit<=0 || creditvalue > 10){
             alert("please enter a valid credit value");
             return;
         }
@@ -57,14 +57,14 @@ function GPAcalculator(){
         //flex flex-col items-center justify-center px-4 .
         //bg-white text-gray-800 rounded-xl shadow-lg p-8 w-full max-w-lg 
     <div className="min-h-screen bg-gradient-to-r from-indigo-600 to-purple-500 flex flex-col items-left justify-center px-2">
-            <h1 className="text-2xl font-bold mb-4 text-center mb-6">GPA Calculator</h1>
+            <h1 className="text-2xl font-bold mb-4 drop-shadow-md text-center mb-6">GPA Calculator</h1>
         <div className="bg-white rounded-lg shadow-xl p-6 flex flex-col md:flex-row gap-8">
 
             <div className="w-full md:w-1/2 bg-grey-200 p-4 rounded-lg shadow-md"> 
             <div className="mb-4">
             <label className="block mb-1 font-medium">
                 Grade:{" "}
-                <select value={grade} onChange={(e)=>setgrade(e.target.value)} className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <select value={grade} onChange={(e)=>setgrade(e.target.value)} className="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                     {
                         Object.keys(grademap).map((g)=>(  // eduku
                             <option value={g} key={g}>{g}
@@ -77,7 +77,7 @@ function GPAcalculator(){
             <br />
             <div className="mb-4">
             <label className="block mb-1 font-medium">
-                Credit:{" "}
+                Credits:{" "}
                 <input type="number" value={credit} onChange={(e)=>setcredits(e.target.value)} onKeyDown={(e) => {
                     if (e.key === "Enter") {
                         addsubject();}} } className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
