@@ -41,7 +41,7 @@ function CurrencyConvertor() {
         const temp=fromcurrency;
         setfromcurrency(tocurrency);
         settocurrency(temp);
-        setconverted(null); // Reset converted value when swapping currencies
+        setconverted(null); // reset converted value when swapping currencies
     };
     useEffect(()=>{
         handleconvert();

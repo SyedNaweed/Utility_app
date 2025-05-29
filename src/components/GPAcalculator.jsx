@@ -53,8 +53,11 @@ function GPAcalculator(){
    
    
     return(
-        <div>
-            <h1>GPA Calculator</h1>
+        //flex flex-col items-center justify-center px-4 .
+        <div className="min-h-screen bg-gradient-to-r from-indigo-600 to-purple-500 text-white flex items-center justify-center p-4">
+            <div className="bg-white text-gray-800 rounded-xl shadow-lg p-8 w-full max-w-lg">
+
+            <h1 className="text-2xl font-bold mb-4 text-center mb-6">GPA Calculator</h1>
             <label>
                 Grade:{" "}
                 <select value={grade} onChange={(e)=>setgrade(e.target.value)}>
@@ -70,7 +73,7 @@ function GPAcalculator(){
             <label >
                 Credit={" "}
                 <input type="number" value={credit} onChange={(e)=>setcredits(e.target.value)} onKeyDown={(e) => {
-    if (e.key === "Enter") {
+                    if (e.key === "Enter") {
       addsubject();}}}/>
             </label>
             <br />
@@ -87,6 +90,7 @@ function GPAcalculator(){
                 ))}
             </ul>
             <h3>GPA: {calculateGPA()}</h3>
+                </div>
         </div>
     )};
 export default GPAcalculator;
