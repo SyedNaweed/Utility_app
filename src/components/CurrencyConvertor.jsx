@@ -64,6 +64,8 @@ function CurrencyConvertor() {
                     <option value="CNY">CNY</option>
                     <option value="RUB">RUB</option>
                     <option value="ZAR">ZAR</option>
+                    <option value="MYR">MYR</option>
+
                 </select>
             </label>
             <label>
@@ -78,7 +80,9 @@ function CurrencyConvertor() {
                     <option value="CNY">CNY</option>
                     <option value="CAD">CAD</option>
                     <option value="ZAR">ZAR</option>
+                    <option value="MYR">MYR</option>
                     <option value="RUB">RUB</option>
+
                 </select>
             </label>
             <br />
