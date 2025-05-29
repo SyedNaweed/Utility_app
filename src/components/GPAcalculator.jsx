@@ -46,6 +46,7 @@ function GPAcalculator(){
             const totalpoints=subjects.reduce((sum,sub)=>sum+sub.gradepoint*sub.credit,0);
             if(totalcredits===0){
                 return 0;
+                
             }
             const cgpa=totalpoints/totalcredits;
             return cgpa.toFixed(2);
@@ -85,9 +86,9 @@ function GPAcalculator(){
             <br />
             <div className="flex gap-2 mb-6">
 
-            <button onClick={addsubject} className="bg-green-300 px-4 py-2 rounded shadow hover:bg-green-500 transition">Add Subject</button>
+            <button onClick={addsubject} className="bg-green-400 px-4 py-2 rounded shadow hover:bg-green-600 transition">Add Subject</button>
+            <button onClick={removeAllsubjects} className="bg-red-400  px-4 py-2 rounded hover:bg-red-600 transition">Remove All Subjects</button>
             </div>
-            <button onClick={removeAllsubjects} className="bg-red-300 text-white px-4 py-2 rounded hover:bg-red-500 transition">Remove All Subjects</button>
             </div>
                 <div className="w-full md:w-1/2 bg-grey-200 p-4 rounded-lg shadow-md"> 
             <h3 className="text-lg font-semibold mb-2">Subject:</h3>
@@ -102,9 +103,12 @@ function GPAcalculator(){
                     </li>
                 ))}
             </ul>
-            <h3 className="text-xl font-bold">
-               <span className=""> GPA: {calculateGPA()}</span></h3>
                 </div>
+           {subjects.length > 0 && (
+        <div className="text-center text-xl font-bold mt-4">
+          GPA: {calculateGPA()}
+        </div>
+      )}
             </div>
         </div>
     )};
