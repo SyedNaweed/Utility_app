@@ -32,10 +32,15 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import Nav from "./nav";
+
 
 function Dashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-red-500 text-white flex flex-col items-center justify-center px-4">
+    <div>
+       <Nav/>
+ <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-red-500 text-white flex flex-col items-center justify-center px-4">
+     
       <h1 className="text-4xl font-bold mb-4 text-center drop-shadow-lg">
         Welcome to the Student Utility Dashboard
       </h1>
@@ -74,6 +79,8 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    </div>
+   
   );
 }
 

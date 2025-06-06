@@ -1,5 +1,8 @@
-import React,{useState,useEffect,useCallback} from "react";
+import {useState,useEffect,useCallback} from "react";
 import axios from "axios";
+import Nav from "./nav";
+
+
 
 function CurrencyConvertor() {
     const [amount,setamount]=useState("");
@@ -48,6 +51,9 @@ function CurrencyConvertor() {
     },[handleconvert]);
 
     return(
+        <div>
+       <Nav/>
+
         <div className="min-h-screen bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center p-4">
             <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md space-y-4">
                 <h1 className="text-2xl font-bold text-blue-700 text-center mb-4">Currency Convertor</h1>
@@ -108,6 +114,9 @@ function CurrencyConvertor() {
                 )}
             </div>
         </div>
+
+        </div>
+    
     );
 }
 export default CurrencyConvertor;

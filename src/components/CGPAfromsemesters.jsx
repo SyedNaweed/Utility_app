@@ -1,5 +1,6 @@
-import React from "react";
 import {useState} from "react";
+import Nav from "./nav";
+
 
 function CGPAfromsemesters(){
     const [gpa,setgpa]=useState("");
@@ -41,6 +42,8 @@ function CGPAfromsemesters(){
         setsemesters([]);
     };
     return (
+      <div>
+        <Nav />
   <div className="min-h-screen bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-600 flex flex-col items-left justify-center px-2">
       <h1 className="text-2xl font-bold mb-4 drop-shadow-md  text-center mb-6">
         CGPA Calculator
@@ -82,7 +85,7 @@ function CGPAfromsemesters(){
         <button
           onClick={removeAllsem}
           className="bg-red-400 px-4 py-2 rounded-md hover:bg-red-600 transition"
-        >
+          >
           Remove All Semesters
         </button>
       </div>
@@ -95,8 +98,8 @@ function CGPAfromsemesters(){
         <ul className="space-y-2 mb-4">
           {semesters.map((sem, index) => (
             <li
-              key={index}
-              className="flex justify-between items-center bg-gray-100 p-3 rounded shadow"
+            key={index}
+            className="flex justify-between items-center bg-gray-100 p-3 rounded shadow"
             >
               <span>
                <strong> GPA:</strong> {sem.gpa}  |  <strong>Credits:</strong> {sem.credits}
@@ -104,7 +107,7 @@ function CGPAfromsemesters(){
               <button
                 onClick={() => removesemester(index)}
                 className="text-xl font-bold test-center rounded px-3 py-2 hover:bg-red-400 transition"
-              >
+                >
                 Remove
               </button>
             </li>
@@ -119,6 +122,7 @@ function CGPAfromsemesters(){
       )}
     </div>
   </div>
+      </div>
     );
 }
 export default CGPAfromsemesters;
