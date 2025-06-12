@@ -16,6 +16,12 @@ mongoose.connect(process.env.MONGO_URI,{
     console.log("mongodb connected..."))
 .catch((err)=>console.error("mongodb failed..",err));
 
+// Import and use auth routes here 👇
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes); // All /api/auth/* routes go to auth.js
+
+// Import and use gpa routes here 👇
+
 app.get("/",(req,res)=>{
     res.send("server is running");
 });
