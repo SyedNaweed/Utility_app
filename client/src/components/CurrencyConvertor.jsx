@@ -1,6 +1,6 @@
 import {useState,useEffect,useCallback} from "react";
 import axios from "axios";
-import Nav from "./nav";
+import Nav from "./Nav";
 
 
 
@@ -52,7 +52,7 @@ function CurrencyConvertor() {
 
     return(
         <div>
-       <Nav/>
+    
 
         <div className="min-h-screen bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center p-4">
             <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md space-y-4">

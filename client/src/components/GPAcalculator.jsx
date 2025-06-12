@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import Nav from "./nav";
+import Nav from "./Nav";
 
 
 const grademap={
@@ -59,7 +59,8 @@ function GPAcalculator(){
         //flex flex-col items-center justify-center px-4 .
         //bg-white text-gray-800 rounded-xl shadow-lg p-8 w-full max-w-lg 
         <div>
-        <Nav />
+    
+
     <div className="min-h-screen bg-gradient-to-r from-indigo-600 to-purple-500 flex flex-col items-left justify-center px-2">
             <h1 className="text-2xl font-bold mb-4 drop-shadow-md text-center mb-6">GPA Calculator</h1>
         <div className="bg-white rounded-lg shadow-xl p-6 flex flex-col md:flex-row gap-8">

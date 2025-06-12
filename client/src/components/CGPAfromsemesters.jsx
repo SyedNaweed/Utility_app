@@ -1,5 +1,5 @@
 import {useState} from "react";
-import Nav from "./nav";
+import Nav from "./Nav";
 
 
 function CGPAfromsemesters(){
@@ -43,7 +43,7 @@ function CGPAfromsemesters(){
     };
     return (
       <div>
-        <Nav />
+      
   <div className="min-h-screen bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-600 flex flex-col items-left justify-center px-2">
       <h1 className="text-2xl font-bold mb-4 drop-shadow-md  text-center mb-6">
         CGPA Calculator
