@@ -50,6 +50,8 @@ import LoginBenefits from "./components/LoginBenefits";
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showBenefits, setShowBenefits] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   // Optional: Auto show login after 1 second on first load (remove this if you don't want auto popup)
   useEffect(() => {
@@ -71,10 +73,26 @@ function App() {
     setShowBenefits(false);
   };
 
+  // const handleLogin = () => setShowLogin(true);
+
+  const handleLogout = () => {
+  const confirmLogout = window.confirm("Are you sure you want to log out?");
+  if (confirmLogout) {
+    setIsLoggedIn(false);
+    setShowLogin(true); // Show login again
+  }
+};
+
+
   return (
     <Router>
       {/* Nav bar is common to all pages and passes onLoginClick */}
-      <Nav onLoginClick={() => setShowLogin(true)} />  
+     <Nav 
+      onLoginClick={() => setShowLogin(true)} 
+      isLoggedIn={isLoggedIn} 
+      onLogoutClick={handleLogout}
+      />
+
 
       <Routes>
         <Route path="/" element={<Dashboard />} />
@@ -86,9 +104,11 @@ function App() {
       {/* Login Popup */}
       {showLogin && (
         <Login 
-          onClose={() => setShowLogin(false)} 
-          onLater={handleLater} 
+        onClose={() => setShowLogin(false)} 
+        onLater={handleLater} 
+        onLogin={() => setIsLoggedIn(true)} // NEW: When user logs in successfully
         />
+
       )}
 
       {/* Login Benefits Popup */}
@@ -98,6 +118,7 @@ function App() {
           onGoBack={handleGoBack} 
         />
       )}
+      
     </Router>
   );
 }
