@@ -1,4 +1,4 @@
-# MERN CGPA & GPA Tracker App
+# MERN CGPA & GPA Tracker App & Currency Convertor 
 
 This is a full-stack web application that allows users to calculate, save, and track their GPA and CGPA. The application uses the MERN stack (MongoDB, Express.js, React.js, Node.js) along with JWT-based authentication for secure data management.
 
