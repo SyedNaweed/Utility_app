@@ -4,6 +4,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 // POST /login - auto-register if user not found
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -19,7 +20,7 @@ router.post('/login', async (req, res) => {
             user = new User({ email, password: hashedPassword });
             await user.save();
 
-            const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
             return res.status(201).json({ message: 'New user registered and logged in', token });
         }
 
@@ -28,7 +29,7 @@ router.post('/login', async (req, res) => {
         if (!isMatch) return res.status(400).json({ message: 'Invalid Password' });
 
         // Generate token       
-        const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Login successful', token });
 
     } catch (err) {
