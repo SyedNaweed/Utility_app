@@ -1,7 +1,5 @@
 # MERN CGPA & GPA Tracker App & Currency Convertor 
 
-# GPA & CGPA Calculator Web Application
-
 ## Description
 
 A full-stack MERN (MongoDB, Express.js, React.js, Node.js) based web application that allows users to calculate and manage their academic GPA and CGPA. Additionally, it features a simple currency converter for quick reference. 
