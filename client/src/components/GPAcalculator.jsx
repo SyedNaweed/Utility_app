@@ -120,8 +120,10 @@
 // export default GPAcalculator;
 
 // GPAcalculator.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios"; // You forgot this import
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 const grademap = {
   "O": 10,
@@ -141,11 +143,14 @@ function GPAcalculator() {
   const [subjects, setsubjects] = useState([]);
    const [gpaData, setGpaData] = useState(null);
 
-  const isLoggedIn = localStorage.getItem("token"); // CHECK if user is logged in
+  // const isLoggedIn = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+const isLoggedIn = !!token; // CHECK if user is logged in
   useEffect(() => {
+    if (!isLoggedIn) return;
     const fetchGPA = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/get-gpa', {
+        const res = await axios.get(`${backendURL}/get-gpa`, {   //http://localhost:5000/get-gpa
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log("Fetched GPA data:", res.data);
@@ -156,7 +161,7 @@ function GPAcalculator() {
     };
 
     fetchGPA();
-  }, []);
+  }, [isLoggedIn, token]);
 
   const addsubject = () => {
     const gradepoint = grademap[grade];
